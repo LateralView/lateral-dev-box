@@ -1,4 +1,4 @@
-# A virtual machine for Ruby on Rails and MEAN stack development
+# Lateral Dev Box
 
 ## Introduction
 
