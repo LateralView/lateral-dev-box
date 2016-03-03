@@ -19,6 +19,8 @@ Vagrant.configure('2') do |config|
   # MySQL
   config.vm.network :forwarded_port, guest: 3306, host: 3306
 
+  config.vm.provision :file, source: "provisioners/welcome", destination: "/tmp/welcome"
+  config.vm.provision :shell, path: 'provisioners/welcome.sh', keep_color: true
   config.vm.provision :shell, path: 'provisioners/rails.sh', keep_color: true
   config.vm.provision :shell, path: 'provisioners/rabbit.sh', keep_color: true
   config.vm.provision :shell, path: 'provisioners/mean.sh', keep_color: true
