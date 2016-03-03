@@ -26,7 +26,7 @@ Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-55-generic x86_64)
 vagrant@lateral-dev-box:~$
 ```
 
-Ports 3000 (Ruby on Rails), 8085 (Express), 15672 (RabbitMQ Management Plugin) and 27017 (MongoDB) in the host computer are forwarded to the same ports in the virtual machine. If your MEAN apps run in a different port than 8085, please change it from Vagrantfile.
+Ports 3000 (Ruby on Rails), 8085 (Express), 15672 (RabbitMQ Management Plugin), 3306 (MySQL) and 27017 (MongoDB) in the host computer are forwarded to the same ports in the virtual machine. If your MEAN apps run in a different port than 8085, please change it from Vagrantfile.
 
 
 ## What's in the Box

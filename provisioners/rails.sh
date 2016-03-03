@@ -22,6 +22,11 @@ install 'Capybara dependencies' qt5-default libqt5webkit5-dev gstreamer1.0-plugi
 debconf-set-selections <<< "mysql-server mysql-server/root_password password root"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password root"
 install MySQL mysql-server libmysqlclient-dev
+replace "bind-address" "#bind-address" -- /etc/mysql/my.cnf >/dev/null 2>&1
+service mysql restart >/dev/null 2>&1
+mysql -uroot -proot <<SQL
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+SQL
 
 # Needed for docs generation.
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8

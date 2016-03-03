@@ -16,6 +16,8 @@ Vagrant.configure('2') do |config|
   config.vm.network :forwarded_port, guest: 15672, host: 15672
   # MongoDB
   config.vm.network :forwarded_port, guest: 27017, host: 27017
+  # MySQL
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
 
   config.vm.provision :shell, path: 'provisioners/rails.sh', keep_color: true
   config.vm.provision :shell, path: 'provisioners/rabbit.sh', keep_color: true
