@@ -1,16 +1,15 @@
-# A Virtual Machine for Web Development
+# A virtual machine for Ruby on Rails and MEAN stack development
 
 ## Introduction
 
-This project is inspired in the [rails-dev-box](https://github.com/rails/rails-dev-box). It automates the setup of a development environment for working on Ruby on Rails or the MEAN stack.
+This project is inspired in the [rails-dev-box](https://github.com/rails/rails-dev-box). It automates the setup of a development environment for working on Ruby on Rails and MEAN stack.
 
 ## Requirements
 
 * [VirtualBox](https://www.virtualbox.org)
-
 * [Vagrant](http://vagrantup.com)
 
-## How To Build The Virtual Machine
+## How to build the Virtual Machine
 
 ```
 host $ git clone https://github.com/LateralView/lateral-dev-box.git
@@ -30,28 +29,18 @@ vagrant@lateral-dev-box:~$
 Ports 3000 (Ruby on Rails), 8085 (Express), 15672 (RabbitMQ Management Plugin) and 27017 (MongoDB) in the host computer are forwarded to the same ports in the virtual machine. If your MEAN apps run in a different port than 8085, please change it from Vagrantfile.
 
 
-## What's In The Box
+## What's in the Box
 
 * Development tools
-
 * Git
-
 * RVM with Ruby 2.1.2
-
 * SQLite3, MySQL, MongoDB
-
 * System dependencies for nokogiri, sqlite3, mysql, mysql2, and Capybara
-
 * Memcached
-
 * Redis
-
 * RabbitMQ
-
-* Node JS
-
+* Node.js
 * Npm
-
 * Npm global modules: nodemon, grunt-cli, mocha
 
 ### NFS
@@ -67,4 +56,5 @@ config.vm.synced_folder "/path/to/your/folder", "/home/vagrant/projects", nfs: t
 
 Please check the Vagrant documentation on [NFS synced folders](http://docs.vagrantup.com/v2/synced-folders/nfs.html) for more information.
 
-Happy coding!
+
+###Happy coding!
