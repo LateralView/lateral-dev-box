@@ -43,6 +43,10 @@ Ports 3000 (Ruby on Rails), 8085 (Express), 15672 (RabbitMQ Management Plugin), 
 * Npm
 * Npm global modules: nodemon, grunt-cli, mocha
 
+### RabbitMQ
+
+By default, RabbitMQ server is not running. If you want to start it, just run `sudo service rabbitmq-server start`. And if you want to start the service automatically on boot, run `sudo update-rc.d rabbitmq-server defaults`.
+
 ### NFS
 
 If you're using Mac OS X or Linux you can increase the performance with Vagrant's NFS synced folders.
