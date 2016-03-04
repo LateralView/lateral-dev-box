@@ -4,6 +4,13 @@ function install {
     apt-get -y install "$@" >/dev/null 2>&1
 }
 
+# Add swap
+fallocate -l 1G /swapfile >/dev/null 2>&1
+chmod 600 /swapfile >/dev/null 2>&1
+mkswap /swapfile >/dev/null 2>&1
+swapon /swapfile >/dev/null 2>&1
+echo '/swapfile none swap sw 0 0' >> /etc/fstab
+
 echo updating package information
 apt-add-repository -y ppa:brightbox/ruby-ng >/dev/null 2>&1
 apt-get -y update >/dev/null 2>&1
