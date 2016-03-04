@@ -53,7 +53,7 @@ If you're using Mac OS X or Linux you can increase the performance with Vagrant'
 
 With an NFS server installed (already installed on Mac OS X), uncomment the following from the Vagrantfile:
 
-```
+```ruby
 config.vm.network :private_network, ip: '192.168.50.77'
 config.vm.synced_folder "/path/to/your/folder", "/home/vagrant/projects", nfs: true
 ```
