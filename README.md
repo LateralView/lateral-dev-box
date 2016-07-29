@@ -60,5 +60,17 @@ config.vm.synced_folder "/path/to/your/folder", "/home/vagrant/projects", nfs: t
 
 Please check the Vagrant documentation on [NFS synced folders](http://docs.vagrantup.com/v2/synced-folders/nfs.html) for more information.
 
+### Windows
+
+For using on a Windows host you need to install OpenSSH and RSync
+One way to get them is installing Cygwin and selecting the rsync and openssh packages during installation.
+After that, check if the rsync and ssh commands are available in the command prompt. If not, you should add your cygwin/bin path to the PATH environment variable.
+
+In your Vagrantfile, make sure you are setting up your synced folders using RSync instead of NFS. Even though NFS can work on Windows, it's extremely slow compared to RSync
+
+```ruby
+config.vm.synced_folder "/path/to/your/folder", "/home/vagrant/projects",  type: "rsync"
+```
+Please check the Vagrant documentation on [RSync synced folders](https://www.vagrantup.com/docs/synced-folders/rsync.html) for more information.
 
 ###Happy coding!
