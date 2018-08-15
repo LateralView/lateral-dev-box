@@ -1,0 +1,4 @@
+[elasticmq_test]
+aws_access_key_id=NOT_EXIST_KEY
+aws_secret_access_key=NOT_EXIST_SECRET
+region=elasticmq

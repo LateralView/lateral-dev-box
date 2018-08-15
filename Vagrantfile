@@ -8,23 +8,25 @@ Vagrant.configure('2') do |config|
     vb.memory = 1024
   end
 
-  # Rails Apps
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
   # MEAN Apps
   config.vm.network :forwarded_port, guest: 8085, host: 8085
-  # RabbitMQ management plugin
-  config.vm.network :forwarded_port, guest: 15672, host: 15672
+  # ElasticMQ
+  config.vm.network :forwarded_port, guest: 9324, host: 9324
   # MongoDB
   config.vm.network :forwarded_port, guest: 27017, host: 27017
-  # MySQL
-  config.vm.network :forwarded_port, guest: 3306, host: 3306
-
+  
   config.vm.provision :file, source: "provisioners/welcome", destination: "/tmp/welcome"
   config.vm.provision :shell, path: 'provisioners/welcome.sh', keep_color: true
-  config.vm.provision :shell, path: 'provisioners/rails.sh', keep_color: true
-  config.vm.provision :shell, path: 'provisioners/rabbit.sh', keep_color: true
+  config.vm.provision :shell, path: 'provisioners/awscli.sh', keep_color: true
   config.vm.provision :shell, path: 'provisioners/mean.sh', keep_color: true
-  config.vm.provision :shell, path: 'provisioners/rvm.sh', keep_color: true, privileged: false
+  config.vm.provision :file, source: "provisioners/elasticmq", destination: "/tmp/elasticmq/elasticmq.conf"
+  config.vm.provision :shell, path: "provisioners/elasticmq.sh", keep_color: true
+  config.vm.provision :file, source: "provisioners/aws", destination: "~/.aws/credentials"
+  config.vm.provision "docker" do |d|
+    d.run "s12v/elasticmq",
+      args: "-p 9324:9324"
+  end
+
   config.vm.provision :shell, inline: "echo Happy coding!"
 
   config.ssh.forward_agent = true

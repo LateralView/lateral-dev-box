@@ -13,7 +13,7 @@ replace "bindIp: 127.0.0.1" "#bindIp: 127.0.0.1" -- /etc/mongod.conf >/dev/null 
 service mongod restart >/dev/null 2>&1
 
 # Node.js
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - >/dev/null 2>&1
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - >/dev/null 2>&1
 install Nodejs nodejs
 install npm npm
 
