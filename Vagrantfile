@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 Vagrant.configure('2') do |config|
-  config.vm.box      = 'ubuntu/trusty64'
+  config.vm.box      = 'ubuntu/xenial64'
   config.vm.hostname = 'lateral-dev-box'
 
   config.vm.provider :virtualbox do |vb|
